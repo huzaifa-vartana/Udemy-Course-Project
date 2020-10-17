@@ -5,11 +5,11 @@ const defaultString = defaultFolder.mongoUri;
 
 const connectMongo = async () => {
   try {
-    await mongoose.connect(
-      defaultString,
-      { useNewUrlParser: true },
-      { useUnifiedTopology: true }
-    );
+    await mongoose.connect(defaultString, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+    });
     console.log("Mongo Connected");
   } catch (error) {
     console.log(error.message);
